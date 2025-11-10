@@ -1,0 +1,37 @@
+{
+  "name": "digital-clock-modules",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "yarn workspaces foreach --all -pt run clean",
+    "build": "yarn workspaces foreach --all -pt run build",
+    "start": "yarn dlx serve packages/app/build --listen 5173",
+    "lint": "eslint --config eslint.config.js"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunnarbirnir/digital-clock.git"
+  },
+  "author": "Gunnar Olafsson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gunnarbirnir/digital-clock/issues"
+  },
+  "homepage": "https://github.com/gunnarbirnir/digital-clock#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@swc/cli": "^0.7.9",
+    "@swc/core": "^1.15.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.5.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3"
+  },
+  "packageManager": "yarn@4.11.0"
+}

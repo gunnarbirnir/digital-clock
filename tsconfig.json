@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "rootDir": "./packages",
+    "outDir": "./build",
+    "module": "nodenext",
+    "target": "es2022",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true
+    // "noUncheckedIndexedAccess": true,
+    // "exactOptionalPropertyTypes": true,
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+    // "noUncheckedSideEffectImports": true
+  }
+}
