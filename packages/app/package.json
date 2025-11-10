@@ -1,0 +1,20 @@
+{
+  "name": "digital-clock-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:swc": "swc . --out-dir build",
+    "build:types": "tsc --outDir build",
+    "clean": "rm -rf build",
+    "build": "yarn clean && yarn build:swc && yarn build:types && cp src/index.html build"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2"
+  }
+}

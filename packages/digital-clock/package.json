@@ -1,0 +1,16 @@
+{
+  "name": "@gunnarbirnir/digital-clock",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:swc": "swc . --out-dir build",
+    "build:types": "tsc --outDir build",
+    "clean": "rm -rf build",
+    "build": "yarn clean && yarn build:swc && yarn build:types"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
