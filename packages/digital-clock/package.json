@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "module": "build/index.esm.js",
   "scripts": {
-    "build:swc": "swc . --out-dir build",
-    "build:types": "tsc --outDir build",
+    "build:package": "rollup -c",
+    "build:types": "tsc",
     "clean": "rm -rf build",
-    "build": "yarn clean && yarn build:swc && yarn build:types"
+    "build": "yarn clean && yarn build:package && yarn build:types"
   },
   "peerDependencies": {
     "react": "^19.2.0",
