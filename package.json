@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "yarn workspaces foreach --all -pt run clean",
     "build": "yarn workspaces foreach --all -pt run build",
     "start": "yarn dlx serve packages/app/build --listen 5173",
-    "lint": "eslint --config eslint.config.js"
+    "clean": "yarn workspaces foreach --all -pt run clean",
+    "lint": "eslint --config eslint.config.js",
+    "type-check": "tsc --noEmit"
   },
   "workspaces": [
     "packages/*"
@@ -24,12 +25,17 @@
   "homepage": "https://github.com/gunnarbirnir/digital-clock#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@swc/cli": "^0.7.9",
-    "@swc/core": "^1.15.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
     "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "globals": "^16.5.0",
+    "rollup": "^4.53.2",
+    "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-jsx": "^1.0.3",
+    "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3"
   },

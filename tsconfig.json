@@ -2,7 +2,8 @@
   "compilerOptions": {
     "rootDir": "./packages",
     "outDir": "./build",
-    "module": "nodenext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "target": "es2022",
     "declaration": true,
     "emitDeclarationOnly": true,
@@ -11,7 +12,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
     "isolatedModules": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "allowSyntheticDefaultImports": true
     // "noUncheckedIndexedAccess": true,
     // "exactOptionalPropertyTypes": true,
     // "noImplicitReturns": true,
