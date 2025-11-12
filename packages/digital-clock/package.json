@@ -7,8 +7,8 @@
   "scripts": {
     "build:package": "rollup -c",
     "build:types": "tsc",
-    "clean": "rm -rf build",
-    "build": "yarn clean && yarn build:package && yarn build:types"
+    "build": "yarn clean && yarn build:package && yarn build:types",
+    "clean": "rm -rf build"
   },
   "peerDependencies": {
     "react": "^19.2.0",
