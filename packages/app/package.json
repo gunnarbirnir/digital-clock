@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:app": "echo 'Building app'",
+    "start": "webpack serve",
+    "build:app": "webpack --mode production",
     "build:types": "tsc",
-    "clean": "rm -rf build",
-    "build": "yarn clean && yarn build:app && yarn build:types"
+    "build": "yarn clean && yarn build:app && yarn build:types",
+    "clean": "rm -rf build"
   },
   "dependencies": {
     "react": "^19.2.0",
