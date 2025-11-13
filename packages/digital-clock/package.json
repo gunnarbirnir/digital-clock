@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "module": "build/index.esm.js",
+  "typings": "build/index.d.ts",
   "scripts": {
+    "start": "rollup -c --watch",
     "build:package": "rollup -c",
     "build:types": "tsc",
     "build": "yarn clean && yarn build:package && yarn build:types",

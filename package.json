@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "yarn workspace digital-clock-app run start",
+    "start:app": "yarn workspace digital-clock-app run start",
+    "start:component": "yarn workspace @gunnarbirnir/digital-clock run start",
+    "start": "concurrently \"yarn start:app\" \"yarn start:component\"",
     "build": "yarn workspaces foreach --all -pt run build",
     "clean": "yarn workspaces foreach --all -pt run clean",
     "lint": "eslint --config eslint.config.js",
@@ -35,6 +37,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "babel-loader": "^10.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
