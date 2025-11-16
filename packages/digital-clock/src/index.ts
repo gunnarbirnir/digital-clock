@@ -1,3 +1,4 @@
 import DigitalClock from './components/DigitalClock';
+import Number from './components/Number';
 
-export default DigitalClock;
+export { DigitalClock, Number };

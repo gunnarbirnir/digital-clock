@@ -5,6 +5,7 @@ export const getNumberPartDimensions = ({
 }: {
   numberHeight: number;
   numberThickness: number;
+  // Only needed if viewBoxHeight is not the same as numberHeight
   viewBoxHeight?: number;
 }) => {
   const numberThicknessRatio =
