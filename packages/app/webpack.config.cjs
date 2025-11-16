@@ -9,6 +9,9 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {

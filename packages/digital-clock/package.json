@@ -8,9 +8,8 @@
   "scripts": {
     "start": "rollup -c --watch",
     "build:package": "rollup -c",
-    "build:types": "tsc",
-    "build": "yarn clean && yarn build:package && yarn build:types",
-    "clean": "rm -rf build"
+    "build": "yarn clean && yarn build:package",
+    "clean": "rm -rf build && rm -rf .cache"
   },
   "peerDependencies": {
     "react": "^19.2.0",
