@@ -14,7 +14,14 @@ const AppContainer = () => {
       }}
     >
       <div style={{ paddingBottom: 20 }}>
-        <DigitalClock />
+        <DigitalClock
+        // height={100}
+        // numberThickness={15}
+        // numberInset={0.5}
+        // numberViewBoxHeight={500}
+        // activeColor="red"
+        // inactiveColor="blue"
+        />
       </div>
     </div>
   );

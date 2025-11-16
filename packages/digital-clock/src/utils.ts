@@ -1,8 +1,16 @@
-import { NUMBER_PART_WIDTH_RATIO } from './constants';
-
-export const getNumberPartDimensions = (height: number) => {
-  const partWidth = height * NUMBER_PART_WIDTH_RATIO;
-  const partHeight = (height - partWidth) / 2;
+export const getNumberPartDimensions = ({
+  numberHeight,
+  numberThickness,
+  viewBoxHeight,
+}: {
+  numberHeight: number;
+  numberThickness: number;
+  viewBoxHeight?: number;
+}) => {
+  const numberThicknessRatio =
+    numberThickness / (viewBoxHeight ?? numberHeight);
+  const partWidth = numberHeight * numberThicknessRatio;
+  const partHeight = (numberHeight - partWidth) / 2;
 
   return { partWidth, partHeight };
 };
