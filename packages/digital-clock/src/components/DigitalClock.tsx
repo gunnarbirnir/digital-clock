@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Number from './Number';
+import type { NumberValue } from '../types';
 
 interface DigitalClockProps {
   height?: number;
@@ -18,6 +19,17 @@ const DigitalClock = ({
   activeColor,
   inactiveColor,
 }: DigitalClockProps) => {
+  const [time, setTime] = useState(new Date());
+  const hours = time.getHours().toString().padStart(2, '0');
+  const minutes = time.getMinutes().toString().padStart(2, '0');
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const numberProps = {
     height,
     thickness: numberThickness,
@@ -29,11 +41,11 @@ const DigitalClock = ({
 
   return (
     <div style={{ display: 'flex', gap: 20 }}>
-      <Number {...numberProps} />
-      <Number {...numberProps} />
+      <Number {...numberProps} value={hours[0] as NumberValue} />
+      <Number {...numberProps} value={hours[1] as NumberValue} />
       <div style={{ width: 20 }} />
-      <Number {...numberProps} />
-      <Number {...numberProps} />
+      <Number {...numberProps} value={minutes[0] as NumberValue} />
+      <Number {...numberProps} value={minutes[1] as NumberValue} />
     </div>
   );
 };

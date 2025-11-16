@@ -1,5 +1,5 @@
 import React from 'react';
-import DigitalClock from '@gunnarbirnir/digital-clock';
+import { DigitalClock } from '@gunnarbirnir/digital-clock';
 
 const AppContainer = () => {
   return (
