@@ -1,9 +1,10 @@
 import React from 'react';
 import NumberPart from './NumberPart';
-import { NUMBER_HEIGHT, NUMBER_PART_WIDTH_RATIO } from '../constants';
+import { NUMBER_HEIGHT } from '../constants';
+import { getNumberPartDimensions } from '../utils';
 
-const PART_WIDTH = NUMBER_HEIGHT * NUMBER_PART_WIDTH_RATIO;
-const PART_HEIGHT = (NUMBER_HEIGHT - PART_WIDTH) / 2;
+const { partWidth: PART_WIDTH, partHeight: PART_HEIGHT } =
+  getNumberPartDimensions(NUMBER_HEIGHT);
 const PART_OFFSET = PART_WIDTH / 2;
 const NUMBER_WIDTH = PART_HEIGHT + PART_WIDTH;
 
