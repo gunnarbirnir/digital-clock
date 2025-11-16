@@ -1,6 +1,24 @@
 import React from 'react';
+import { NUMBER_PART_OFFSET_RATIO } from '../constants';
+import { getNumberPartDimensions } from '../utils';
 
-const STROKE_OFFSET_RATIO = 0.1;
+const VIEW_BOX_HEIGHT = 400;
+const { partWidth: PART_WIDTH, partHeight: PART_HEIGHT } =
+  getNumberPartDimensions(VIEW_BOX_HEIGHT);
+const STROKE_OFFSET = PART_WIDTH * NUMBER_PART_OFFSET_RATIO;
+
+const POINTS = [
+  `0,${PART_WIDTH / 2}`,
+  `0,${PART_HEIGHT - PART_WIDTH / 2}`,
+  `${PART_WIDTH / 2},${PART_HEIGHT}`,
+  `${PART_WIDTH},${PART_HEIGHT - PART_WIDTH / 2}`,
+  `${PART_WIDTH},${PART_WIDTH / 2}`,
+  `${PART_WIDTH / 2},0`,
+].join(' ');
+
+const VIEW_BOX = `-${STROKE_OFFSET} -${STROKE_OFFSET} ${
+  PART_WIDTH + STROKE_OFFSET * 2
+} ${PART_HEIGHT + STROKE_OFFSET * 2}`;
 
 interface NumberPartProps {
   height: number;
@@ -9,25 +27,9 @@ interface NumberPartProps {
 }
 
 const NumberPart = ({ height, width, isActive = false }: NumberPartProps) => {
-  const points = [
-    `0,${width / 2}`,
-    `0,${height - width / 2}`,
-    `${width / 2},${height}`,
-    `${width},${height - width / 2}`,
-    `${width},${width / 2}`,
-    `${width / 2},0`,
-  ].join(' ');
-  const strokeOffset = width * STROKE_OFFSET_RATIO;
-
   return (
-    <svg
-      height={height}
-      width={width}
-      viewBox={`${-strokeOffset} ${-strokeOffset} ${width + strokeOffset * 2} ${
-        height + strokeOffset * 2
-      }`}
-    >
-      <polygon fill={isActive ? 'hotpink' : '#333'} points={points} />
+    <svg height={height} width={width} viewBox={VIEW_BOX}>
+      <polygon fill={isActive ? 'hotpink' : '#333'} points={POINTS} />
     </svg>
   );
 };
