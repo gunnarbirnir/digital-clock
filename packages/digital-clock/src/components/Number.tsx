@@ -1,94 +1,130 @@
 import React from 'react';
 import NumberPart from './NumberPart';
-import { NUMBER_HEIGHT } from '../constants';
+import {
+  DEFAULT_NUMBER_HEIGHT,
+  DEFAULT_NUMBER_THICKNESS,
+  DEFAULT_NUMBER_INSET,
+  DEFAULT_ACTIVE_COLOR,
+  DEFAULT_INACTIVE_COLOR,
+} from '../constants';
 import { getNumberPartDimensions } from '../utils';
 
-const { partWidth: PART_WIDTH, partHeight: PART_HEIGHT } =
-  getNumberPartDimensions(NUMBER_HEIGHT);
-const PART_OFFSET = PART_WIDTH / 2;
-const NUMBER_WIDTH = PART_HEIGHT + PART_WIDTH;
+interface NumberProps {
+  height?: number;
+  thickness?: number;
+  inset?: number;
+  viewBoxHeight?: number;
+  activeColor?: string;
+  inactiveColor?: string;
+}
 
-const partContainerStyle = {
-  position: 'absolute',
-  height: PART_HEIGHT,
-  width: PART_WIDTH,
-  transformOrigin: 'top left',
-} as const;
+const Number = ({
+  height = DEFAULT_NUMBER_HEIGHT,
+  thickness = DEFAULT_NUMBER_THICKNESS,
+  inset = DEFAULT_NUMBER_INSET,
+  viewBoxHeight = DEFAULT_NUMBER_HEIGHT,
+  activeColor = DEFAULT_ACTIVE_COLOR,
+  inactiveColor = DEFAULT_INACTIVE_COLOR,
+}: NumberProps) => {
+  // Actual dimensions
+  const { partWidth, partHeight } = getNumberPartDimensions({
+    numberHeight: height,
+    numberThickness: thickness,
+    viewBoxHeight,
+  });
+  const partOffset = partWidth / 2;
+  const numberWidth = partHeight + partWidth;
 
-const Number = () => {
+  const partContainerStyle = {
+    position: 'absolute',
+    height: partHeight,
+    width: partWidth,
+    transformOrigin: 'top left',
+  } as const;
+
+  const numberPartProps = {
+    height: partHeight,
+    width: partWidth,
+    thickness,
+    inset,
+    viewBoxHeight,
+    activeColor,
+    inactiveColor,
+  };
+
   return (
     <div
       style={{
-        height: NUMBER_HEIGHT,
-        width: NUMBER_WIDTH,
+        height: height,
+        width: numberWidth,
         position: 'relative',
       }}
     >
       <div
         style={{
           ...partContainerStyle,
-          top: PART_OFFSET,
+          top: partOffset,
           left: 0,
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
       <div
         style={{
           ...partContainerStyle,
-          bottom: PART_OFFSET,
+          bottom: partOffset,
           left: 0,
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
       <div
         style={{
           ...partContainerStyle,
-          top: PART_OFFSET,
+          top: partOffset,
           right: 0,
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
       <div
         style={{
           ...partContainerStyle,
-          bottom: PART_OFFSET,
+          bottom: partOffset,
           right: 0,
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
       <div
         style={{
           ...partContainerStyle,
-          top: PART_WIDTH,
-          left: PART_OFFSET,
+          top: partWidth,
+          left: partOffset,
           transform: 'rotate(-90deg)',
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
       <div
         style={{
           ...partContainerStyle,
           top: '50%',
-          left: PART_OFFSET,
-          transform: `rotate(-90deg) translateX(-${PART_OFFSET}px)`,
+          left: partOffset,
+          transform: `rotate(-90deg) translateX(-${partOffset}px)`,
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
       <div
         style={{
           ...partContainerStyle,
           top: '100%',
-          left: PART_OFFSET,
+          left: partOffset,
           transform: 'rotate(-90deg)',
         }}
       >
-        <NumberPart height={PART_HEIGHT} width={PART_WIDTH} />
+        <NumberPart {...numberPartProps} />
       </div>
     </div>
   );
