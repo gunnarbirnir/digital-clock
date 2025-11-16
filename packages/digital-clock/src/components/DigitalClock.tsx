@@ -1,10 +1,15 @@
 import React from 'react';
+import Number from './Number';
 
 const DigitalClock = () => {
   return (
-    <h1 style={{ color: 'darkcyan', backgroundColor: 'turquoise' }}>
-      Digital Clock
-    </h1>
+    <div style={{ display: 'flex', gap: 20 }}>
+      <Number />
+      <Number />
+      <div style={{ width: 20 }} />
+      <Number />
+      <Number />
+    </div>
   );
 };
 
