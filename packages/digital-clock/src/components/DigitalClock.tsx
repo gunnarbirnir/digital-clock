@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Number from './Number';
-import type { NumberValue } from '../types';
+import ClockNumbers from './ClockNumbers';
+import NumbersGlow from './NumbersGlow';
+import {
+  DEFAULT_NUMBER_HEIGHT,
+  DEFAULT_NUMBER_THICKNESS,
+  DEFAULT_NUMBER_INSET,
+  DEFAULT_ACTIVE_COLOR,
+  DEFAULT_INACTIVE_COLOR,
+} from '../constants';
 
 interface DigitalClockProps {
   height?: number;
@@ -9,19 +16,22 @@ interface DigitalClockProps {
   numberViewBoxHeight?: number;
   activeColor?: string;
   inactiveColor?: string;
+  hideGlow?: boolean;
+  hideLargeGlow?: boolean;
 }
 
 const DigitalClock = ({
-  height,
-  numberThickness,
-  numberInset,
-  numberViewBoxHeight,
-  activeColor,
-  inactiveColor,
+  height = DEFAULT_NUMBER_HEIGHT,
+  numberThickness = DEFAULT_NUMBER_THICKNESS,
+  numberInset = DEFAULT_NUMBER_INSET,
+  numberViewBoxHeight = DEFAULT_NUMBER_HEIGHT,
+  activeColor = DEFAULT_ACTIVE_COLOR,
+  inactiveColor = DEFAULT_INACTIVE_COLOR,
+  hideGlow = false,
+  hideLargeGlow = false,
 }: DigitalClockProps) => {
   const [time, setTime] = useState(new Date());
-  const hours = time.getHours().toString().padStart(2, '0');
-  const minutes = time.getMinutes().toString().padStart(2, '0');
+  const baseSpacing = (numberThickness / numberViewBoxHeight) * 100;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,22 +40,30 @@ const DigitalClock = ({
     return () => clearInterval(interval);
   }, []);
 
-  const numberProps = {
+  const clockNumberProps = {
+    time,
     height,
-    thickness: numberThickness,
-    inset: numberInset,
-    viewBoxHeight: numberViewBoxHeight,
+    numberThickness,
+    numberInset,
+    numberViewBoxHeight,
     activeColor,
     inactiveColor,
+    baseSpacing,
   };
 
   return (
-    <div style={{ display: 'flex', gap: 20 }}>
-      <Number {...numberProps} value={hours[0] as NumberValue} />
-      <Number {...numberProps} value={hours[1] as NumberValue} />
-      <div style={{ width: 20 }} />
-      <Number {...numberProps} value={minutes[0] as NumberValue} />
-      <Number {...numberProps} value={minutes[1] as NumberValue} />
+    <div
+      style={{ display: 'flex', gap: baseSpacing * 2, position: 'relative' }}
+    >
+      <ClockNumbers {...clockNumberProps} />
+      <NumbersGlow
+        color={activeColor}
+        hideGlow={hideGlow}
+        hideLargeGlow={hideLargeGlow}
+        baseSpacing={baseSpacing}
+      >
+        <ClockNumbers {...clockNumberProps} />
+      </NumbersGlow>
     </div>
   );
 };
