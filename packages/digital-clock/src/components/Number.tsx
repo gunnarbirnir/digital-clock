@@ -1,35 +1,28 @@
 import React, { memo } from 'react';
 import NumberPart from './NumberPart';
-import {
-  DEFAULT_NUMBER_HEIGHT,
-  DEFAULT_NUMBER_THICKNESS,
-  DEFAULT_NUMBER_INSET,
-  DEFAULT_ACTIVE_COLOR,
-  DEFAULT_INACTIVE_COLOR,
-  NUMBER_VALUES,
-} from '../constants';
+import { NUMBER_VALUES } from '../constants';
 import { getNumberPartDimensions } from '../utils';
 import type { NumberValue } from '../types';
 
 interface NumberProps {
   value: NumberValue;
-  height?: number;
-  thickness?: number;
-  inset?: number;
-  viewBoxHeight?: number;
-  activeColor?: string;
-  inactiveColor?: string;
+  height: number;
+  thickness: number;
+  inset: number;
+  viewBoxHeight: number;
+  activeColor: string;
+  inactiveColor: string;
 }
 
 const Number = memo(
   ({
     value,
-    height = DEFAULT_NUMBER_HEIGHT,
-    thickness = DEFAULT_NUMBER_THICKNESS,
-    inset = DEFAULT_NUMBER_INSET,
-    viewBoxHeight = DEFAULT_NUMBER_HEIGHT,
-    activeColor = DEFAULT_ACTIVE_COLOR,
-    inactiveColor = DEFAULT_INACTIVE_COLOR,
+    height,
+    thickness,
+    inset,
+    viewBoxHeight,
+    activeColor,
+    inactiveColor,
   }: NumberProps) => {
     // Actual dimensions
     const { partWidth, partHeight } = getNumberPartDimensions({

@@ -21,6 +21,8 @@ const AppContainer = () => {
         // numberViewBoxHeight={500}
         // activeColor="red"
         // inactiveColor="blue"
+        // hideGlow={true}
+        // hideLargeGlow={true}
         />
       </div>
     </div>
