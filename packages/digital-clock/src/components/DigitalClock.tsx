@@ -31,7 +31,7 @@ const DigitalClock = ({
   hideLargeGlow = false,
 }: DigitalClockProps) => {
   const [time, setTime] = useState(new Date());
-  const baseSpacing = (numberThickness / numberViewBoxHeight) * 100;
+  const baseSizeUnit = (height / numberViewBoxHeight) * 10;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,21 +48,19 @@ const DigitalClock = ({
     numberViewBoxHeight,
     activeColor,
     inactiveColor,
-    baseSpacing,
+    baseSizeUnit,
   };
 
   return (
-    <div
-      style={{ display: 'flex', gap: baseSpacing * 2, position: 'relative' }}
-    >
+    <div style={{ position: 'relative' }}>
       <ClockNumbers {...clockNumberProps} />
       <NumbersGlow
         color={activeColor}
         hideGlow={hideGlow}
         hideLargeGlow={hideLargeGlow}
-        baseSpacing={baseSpacing}
+        baseSizeUnit={baseSizeUnit}
       >
-        <ClockNumbers {...clockNumberProps} />
+        <ClockNumbers {...clockNumberProps} inactiveColor="rgba(0,0,0,0)" />
       </NumbersGlow>
     </div>
   );

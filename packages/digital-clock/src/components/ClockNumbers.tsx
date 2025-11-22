@@ -11,7 +11,7 @@ interface ClockNumbersProps {
   numberViewBoxHeight: number;
   activeColor: string;
   inactiveColor: string;
-  baseSpacing: number;
+  baseSizeUnit: number;
 }
 
 const ClockNumbers = ({
@@ -22,7 +22,7 @@ const ClockNumbers = ({
   numberViewBoxHeight,
   activeColor,
   inactiveColor,
-  baseSpacing,
+  baseSizeUnit,
 }: ClockNumbersProps) => {
   const hours = time.getHours().toString().padStart(2, '0');
   const minutes = time.getMinutes().toString().padStart(2, '0');
@@ -37,15 +37,15 @@ const ClockNumbers = ({
   };
 
   return (
-    <div style={{ display: 'flex', gap: baseSpacing * 2 }}>
+    <div style={{ display: 'flex', gap: baseSizeUnit * 2 }}>
       <Number {...numberProps} value={hours[0] as NumberValue} />
       <Number {...numberProps} value={hours[1] as NumberValue} />
       <DotsContainer
         color={activeColor}
-        size={numberThickness}
+        baseSizeUnit={baseSizeUnit}
         inset={numberInset}
-        baseSpacing={baseSpacing}
-        viewBoxHeight={numberViewBoxHeight}
+        numberHeight={height}
+        numberViewBoxHeight={numberViewBoxHeight}
       />
       <Number {...numberProps} value={minutes[0] as NumberValue} />
       <Number {...numberProps} value={minutes[1] as NumberValue} />
