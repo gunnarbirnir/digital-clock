@@ -1,17 +1,36 @@
-export const getNumberPartDimensions = ({
-  numberHeight,
-  numberThickness,
-  viewBoxHeight,
-}: {
-  numberHeight: number;
-  numberThickness: number;
-  // Only needed if viewBoxHeight is not the same as numberHeight
-  viewBoxHeight?: number;
-}) => {
-  const numberThicknessRatio =
-    numberThickness / (viewBoxHeight ?? numberHeight);
-  const partWidth = numberHeight * numberThicknessRatio;
-  const partHeight = (numberHeight - partWidth) / 2;
+export const getFormattedTime = (time: Date) => {
+  const hours = time.getHours().toString().padStart(2, '0');
+  const minutes = time.getMinutes().toString().padStart(2, '0');
+  return { hours, minutes };
+};
 
-  return { partWidth, partHeight };
+export const getViewBoxDimensions = ({
+  viewBoxHeight,
+  viewBoxWidth,
+  inset,
+}: {
+  viewBoxHeight: number;
+  viewBoxWidth: number;
+  inset: number;
+}) => {
+  return `-${inset} -${inset} ${viewBoxWidth + inset * 2} ${
+    viewBoxHeight + inset * 2
+  }`;
+};
+
+export const getNumberPartPoints = ({
+  height,
+  width,
+}: {
+  height: number;
+  width: number;
+}) => {
+  return [
+    `0,${width / 2}`,
+    `0,${height - width / 2}`,
+    `${width / 2},${height}`,
+    `${width},${height - width / 2}`,
+    `${width},${width / 2}`,
+    `${width / 2},0`,
+  ].join(' ');
 };

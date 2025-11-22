@@ -1,5 +1,5 @@
 import React from 'react';
-import { getNumberPartDimensions } from '../utils';
+import { getViewBoxDimensions, getNumberPartPoints } from '../utils';
 
 interface NumberPartProps {
   height: number;
@@ -22,24 +22,14 @@ const NumberPart = ({
   inactiveColor,
   isActive = false,
 }: NumberPartProps) => {
-  // Viewport dimensions
-  const { partWidth, partHeight } = getNumberPartDimensions({
-    numberHeight: viewBoxHeight,
-    numberThickness: thickness,
+  const partWidth = thickness;
+  const partHeight = (viewBoxHeight - partWidth) / 2;
+  const viewBox = getViewBoxDimensions({
+    viewBoxHeight: partHeight,
+    viewBoxWidth: partWidth,
+    inset,
   });
-
-  const points = [
-    `0,${partWidth / 2}`,
-    `0,${partHeight - partWidth / 2}`,
-    `${partWidth / 2},${partHeight}`,
-    `${partWidth},${partHeight - partWidth / 2}`,
-    `${partWidth},${partWidth / 2}`,
-    `${partWidth / 2},0`,
-  ].join(' ');
-
-  const viewBox = `-${inset} -${inset} ${partWidth + inset * 2} ${
-    partHeight + inset * 2
-  }`;
+  const points = getNumberPartPoints({ height: partHeight, width: partWidth });
 
   return (
     <svg height={height} width={width} viewBox={viewBox}>

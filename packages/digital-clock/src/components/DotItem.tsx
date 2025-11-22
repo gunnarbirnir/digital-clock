@@ -1,4 +1,5 @@
 import React from 'react';
+import { getViewBoxDimensions } from '../utils';
 
 interface DotItemProps {
   color: string;
@@ -8,9 +9,11 @@ interface DotItemProps {
 }
 
 const DotItem = ({ color, size, viewBoxHeight, inset }: DotItemProps) => {
-  const viewBox = `-${inset} -${inset} ${viewBoxHeight + inset * 2} ${
-    viewBoxHeight + inset * 2
-  }`;
+  const viewBox = getViewBoxDimensions({
+    viewBoxHeight,
+    viewBoxWidth: viewBoxHeight,
+    inset,
+  });
 
   return (
     <svg width={size} height={size} viewBox={viewBox}>

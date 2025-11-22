@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import NumberPart from './NumberPart';
 import { NUMBER_VALUES } from '../constants';
-import { getNumberPartDimensions } from '../utils';
 import type { NumberValue } from '../types';
 
 interface NumberProps {
@@ -24,12 +23,8 @@ const Number = memo(
     activeColor,
     inactiveColor,
   }: NumberProps) => {
-    // Actual dimensions
-    const { partWidth, partHeight } = getNumberPartDimensions({
-      numberHeight: height,
-      numberThickness: thickness,
-      viewBoxHeight,
-    });
+    const partWidth = thickness * (height / viewBoxHeight);
+    const partHeight = (height - partWidth) / 2;
     const partOffset = partWidth / 2;
     const numberWidth = partHeight + partWidth;
 
