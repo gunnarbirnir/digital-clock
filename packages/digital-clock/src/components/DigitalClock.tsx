@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import ClockNumbers from './ClockNumbers';
-import NumbersGlow from './NumbersGlow';
+import React from 'react';
 import {
-  DEFAULT_NUMBER_HEIGHT,
-  DEFAULT_NUMBER_THICKNESS,
-  DEFAULT_NUMBER_INSET,
   DEFAULT_ACTIVE_COLOR,
   DEFAULT_INACTIVE_COLOR,
+  DEFAULT_NUMBER_HEIGHT,
+  DEFAULT_NUMBER_INSET,
+  DEFAULT_NUMBER_THICKNESS,
 } from '../constants';
+import { useTime } from '../hooks/useTime';
+import ClockNumbers from './ClockNumbers';
+import NumbersGlow from './NumbersGlow';
 
 interface DigitalClockProps {
   height?: number;
@@ -18,6 +19,7 @@ interface DigitalClockProps {
   inactiveColor?: string;
   hideGlow?: boolean;
   hideLargeGlow?: boolean;
+  getTimeUpdate?: () => Date;
 }
 
 const DigitalClock = ({
@@ -29,16 +31,10 @@ const DigitalClock = ({
   inactiveColor = DEFAULT_INACTIVE_COLOR,
   hideGlow = false,
   hideLargeGlow = false,
+  getTimeUpdate,
 }: DigitalClockProps) => {
-  const [time, setTime] = useState(new Date());
+  const time = useTime(getTimeUpdate);
   const baseSizeUnit = (height / numberViewBoxHeight) * 10;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const clockNumberProps = {
     time,

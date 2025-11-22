@@ -1,4 +1,4 @@
-import type { NumberValue } from './types';
+import type { NumberValue } from '../types';
 
 export const DEFAULT_NUMBER_HEIGHT = 200;
 export const DEFAULT_NUMBER_THICKNESS = 20;
