@@ -2,6 +2,7 @@ import React from 'react';
 import type { NumberValue } from '../types';
 import DotsContainer from './DotsContainer';
 import Number from './Number';
+import { getFormattedTime } from '../utils';
 
 interface ClockNumbersProps {
   time: Date;
@@ -24,8 +25,7 @@ const ClockNumbers = ({
   inactiveColor,
   baseSizeUnit,
 }: ClockNumbersProps) => {
-  const hours = time.getHours().toString().padStart(2, '0');
-  const minutes = time.getMinutes().toString().padStart(2, '0');
+  const { hours, minutes } = getFormattedTime(time);
 
   const numberProps = {
     height,
