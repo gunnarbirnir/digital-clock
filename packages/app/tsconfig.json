@@ -4,5 +4,7 @@
     "emitDeclarationOnly": true,
     "outDir": "build",
     "rootDir": "src"
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["*.test.*"]
 }

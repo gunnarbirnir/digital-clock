@@ -13,8 +13,10 @@ export const getViewBoxDimensions = ({
   viewBoxWidth: number;
   inset: number;
 }) => {
-  return `-${inset} -${inset} ${viewBoxWidth + inset * 2} ${
-    viewBoxHeight + inset * 2
+  const absInset = Math.abs(inset);
+  const formattedInset = inset !== 0 ? `-${absInset}` : inset;
+  return `${formattedInset} ${formattedInset} ${viewBoxWidth + absInset * 2} ${
+    viewBoxHeight + absInset * 2
   }`;
 };
 
