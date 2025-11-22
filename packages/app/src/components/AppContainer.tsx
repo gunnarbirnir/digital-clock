@@ -15,9 +15,9 @@ const AppContainer = () => {
     >
       <div style={{ paddingBottom: 20 }}>
         <DigitalClock
-        // height={100}
+        // height={250}
         // numberThickness={15}
-        // numberInset={0.5}
+        // numberInset={4}
         // numberViewBoxHeight={500}
         // activeColor="red"
         // inactiveColor="blue"

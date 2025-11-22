@@ -4,7 +4,7 @@ interface NumbersGlowProps {
   color: string;
   hideGlow: boolean;
   hideLargeGlow: boolean;
-  baseSpacing: number;
+  baseSizeUnit: number;
 }
 
 const NumbersGlow = memo(
@@ -13,10 +13,8 @@ const NumbersGlow = memo(
     color,
     hideGlow,
     hideLargeGlow,
-    baseSpacing,
+    baseSizeUnit,
   }: PropsWithChildren<NumbersGlowProps>) => {
-    const largeGlowOffset = -baseSpacing * 3;
-
     return (
       <>
         {!hideGlow && (
@@ -25,7 +23,7 @@ const NumbersGlow = memo(
               position: 'absolute',
               top: 0,
               left: 0,
-              filter: `blur(${baseSpacing}px)`,
+              filter: `blur(${baseSizeUnit}px)`,
             }}
           >
             {children}
@@ -35,13 +33,10 @@ const NumbersGlow = memo(
           <div
             style={{
               position: 'absolute',
-              top: largeGlowOffset,
-              left: largeGlowOffset,
-              bottom: largeGlowOffset,
-              right: largeGlowOffset,
+              inset: -baseSizeUnit * 3,
               backgroundColor: color,
               opacity: 0.2,
-              filter: `blur(${baseSpacing * 5}px)`,
+              filter: `blur(${baseSizeUnit * 5}px)`,
             }}
           />
         )}
