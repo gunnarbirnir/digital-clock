@@ -28,6 +28,6 @@ module.exports = {
   ],
   devServer: {
     static: './build',
-    open: true,
+    // open: true,
   },
 };

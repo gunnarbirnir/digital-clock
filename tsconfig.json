@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./packages",
+    "rootDir": ".",
     "outDir": "./build",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -22,5 +22,11 @@
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
     // "noUncheckedSideEffectImports": true
-  }
+  },
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ]
 }
