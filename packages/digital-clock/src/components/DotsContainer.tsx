@@ -4,21 +4,22 @@ import DotItem from './DotItem';
 
 interface DotsContainerProps {
   color: string;
-  inset: number;
   baseSizeUnit: number;
   numberHeight: number;
   numberViewBoxHeight: number;
+  numberThickness: number;
 }
 
 const DotsContainer = memo(
   ({
+    color,
     baseSizeUnit,
     numberHeight,
     numberViewBoxHeight,
-    ...props
+    numberThickness,
   }: DotsContainerProps) => {
-    const dotSize = baseSizeUnit * 2;
-    const dotViewBoxHeight = dotSize * (numberViewBoxHeight / numberHeight);
+    const dotViewBoxHeight = numberThickness;
+    const dotSize = dotViewBoxHeight * (numberHeight / numberViewBoxHeight);
 
     return (
       <div
@@ -30,8 +31,16 @@ const DotsContainer = memo(
           padding: baseSizeUnit,
         }}
       >
-        <DotItem {...props} size={dotSize} viewBoxHeight={dotViewBoxHeight} />
-        <DotItem {...props} size={dotSize} viewBoxHeight={dotViewBoxHeight} />
+        <DotItem
+          color={color}
+          size={dotSize}
+          viewBoxHeight={dotViewBoxHeight}
+        />
+        <DotItem
+          color={color}
+          size={dotSize}
+          viewBoxHeight={dotViewBoxHeight}
+        />
       </div>
     );
   }

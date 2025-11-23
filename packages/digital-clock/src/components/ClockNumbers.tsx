@@ -43,9 +43,9 @@ const ClockNumbers = ({
       <DotsContainer
         color={activeColor}
         baseSizeUnit={baseSizeUnit}
-        inset={numberInset}
         numberHeight={height}
         numberViewBoxHeight={numberViewBoxHeight}
+        numberThickness={numberThickness}
       />
       <Number {...numberProps} value={minutes[0] as NumberValue} />
       <Number {...numberProps} value={minutes[1] as NumberValue} />
