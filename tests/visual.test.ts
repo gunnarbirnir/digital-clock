@@ -60,7 +60,7 @@ test('custom inactive color', async ({ page }) => {
   await page.goto(
     getTestUrl({
       time: '16:27',
-      inactiveColor: '008080',
+      inactiveColor: 'AA336A',
     })
   );
   await expect(page).toHaveScreenshot('custom-inactive-color.png');

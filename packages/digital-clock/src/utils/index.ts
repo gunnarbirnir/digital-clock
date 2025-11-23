@@ -7,11 +7,11 @@ export const getFormattedTime = (time: Date) => {
 export const getViewBoxDimensions = ({
   viewBoxHeight,
   viewBoxWidth,
-  inset,
+  inset = 0,
 }: {
   viewBoxHeight: number;
   viewBoxWidth: number;
-  inset: number;
+  inset?: number;
 }) => {
   const absInset = Math.abs(inset);
   const formattedInset = inset !== 0 ? `-${absInset}` : inset;

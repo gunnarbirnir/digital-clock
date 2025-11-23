@@ -5,14 +5,12 @@ interface DotItemProps {
   color: string;
   size: number;
   viewBoxHeight: number;
-  inset: number;
 }
 
-const DotItem = ({ color, size, viewBoxHeight, inset }: DotItemProps) => {
+const DotItem = ({ color, size, viewBoxHeight }: DotItemProps) => {
   const viewBox = getViewBoxDimensions({
     viewBoxHeight,
     viewBoxWidth: viewBoxHeight,
-    inset,
   });
 
   return (
