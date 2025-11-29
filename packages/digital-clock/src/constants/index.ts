@@ -4,7 +4,7 @@ export const DEFAULT_NUMBER_HEIGHT = 200;
 export const DEFAULT_NUMBER_THICKNESS = 20;
 export const DEFAULT_NUMBER_INSET = 1;
 export const DEFAULT_ACTIVE_COLOR = '#FF7F50';
-export const DEFAULT_INACTIVE_COLOR = '#333333';
+export const DEFAULT_INACTIVE_COLOR = '#444444';
 
 export const NUMBER_VALUES: Record<NumberValue, number[]> = {
   '0': [1, 1, 1, 0, 1, 1, 1],
