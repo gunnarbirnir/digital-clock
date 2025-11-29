@@ -1,7 +1,6 @@
 {
   "name": "@gunnarbirnir/digital-clock",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
   "module": "build/index.esm.js",
   "typings": "build/index.d.ts",
@@ -14,5 +13,12 @@
   "peerDependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunnarbirnir/digital-clock.git"
   }
 }
