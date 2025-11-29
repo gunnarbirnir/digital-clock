@@ -1,0 +1,6 @@
+FROM node:24.11.1-alpine3.22
+
+WORKDIR /app
+
+ENV YARN_CACHE_FOLDER=/app/.yarn/cache
+ENV YARN_ENABLE_GLOBAL_CACHE=false
