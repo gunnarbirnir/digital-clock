@@ -11,7 +11,7 @@
     "clean": "rm -rf build"
   },
   "dependencies": {
-    "@gunnarbirnir/digital-clock": "1.0.0",
+    "@gunnarbirnir/digital-clock": "1.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   }
