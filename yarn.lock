@@ -1504,7 +1504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gunnarbirnir/digital-clock@npm:1.0.0, @gunnarbirnir/digital-clock@workspace:packages/digital-clock":
+"@gunnarbirnir/digital-clock@npm:1.1.0, @gunnarbirnir/digital-clock@workspace:packages/digital-clock":
   version: 0.0.0-use.local
   resolution: "@gunnarbirnir/digital-clock@workspace:packages/digital-clock"
   peerDependencies:
@@ -4309,7 +4309,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "digital-clock-app@workspace:packages/app"
   dependencies:
-    "@gunnarbirnir/digital-clock": "npm:1.0.0"
+    "@gunnarbirnir/digital-clock": "npm:1.1.0"
     react: "npm:^19.2.0"
     react-dom: "npm:^19.2.0"
   languageName: unknown

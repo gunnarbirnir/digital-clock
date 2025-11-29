@@ -12,7 +12,7 @@
     "test:visual": "playwright test --update-snapshots",
     "lint": "eslint --config eslint.config.js",
     "type-check": "tsc --noEmit",
-    "publish:package": "yarn workspace @gunnarbirnir/digital-clock npm publish"
+    "publish:package": "yarn workspace @gunnarbirnir/digital-clock publish"
   },
   "workspaces": [
     "packages/*"
