@@ -3,6 +3,9 @@ pipeline {
     image 'node:24.11.1-alpine3.22' 
     args '-u root:root -e NPM_TOKEN=$NPM_TOKEN'
   } }
+  triggers {
+    githubPush()
+  }
   stages {
     stage('Install') {
       steps {
